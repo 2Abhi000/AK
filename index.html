@@ -1,0 +1,1173 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="./images/favicon.bmp" type="image/x-icon" />
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+    />
+    <!-- AOS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
+    />
+    <!-- Glidejs -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.4.1/css/glide.core.css"
+    />
+    <!-- Custom StyleSheet -->
+    <style>
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  scroll-behavior: smooth;
+  box-sizing: border-box;
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  font-size: 1.6rem;
+  font-weight: 400;
+  background-color: #fff;
+  color: #000;
+  position: relative;
+  z-index: 1;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-weight: 500;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+}
+
+li {
+  list-style: none;
+}
+
+.container {
+  max-width: 114rem;
+  margin: 0 auto;
+}
+
+@media only screen and (max-width: 1200px) {
+  .container {
+    padding: 0 3rem;
+  }
+}
+
+/* Header */
+.header {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  background: #000;
+  z-index: 1;
+}
+
+.header img {
+  position: absolute;
+  right: 5%;
+  bottom: 0;
+  width: 60rem;
+  z-index: -1;
+}
+
+@media only screen and (max-width: 996px) {
+  .header {
+    min-height: 60vh;
+  }
+
+  .header img {
+    width: 50rem;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .header img {
+    width: 40rem;
+  }
+}
+
+@media only screen and (max-width: 567px) {
+  .header {
+    min-height: 100vh;
+  }
+
+  .header img {
+    width: 35rem;
+  }
+}
+
+.nav {
+  padding: 1.6rem 0;
+}
+
+.nav.fix-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #dd9a05;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  z-index: 999;
+}
+
+.navigation {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo h1 {
+  font-size: 2.5rem;
+  color: #fff;
+}
+
+.logo h1 span {
+  font-weight: bold;
+  color: #dd9a05;
+}
+
+.nav-list {
+  display: flex;
+  align-items: center;
+}
+
+.nav-item:not(:last-child) {
+  margin-right: 0.5rem;
+}
+
+.nav-link:link,
+.nav-link:visited {
+  color: #fff;
+  padding: 0.8rem 1rem;
+  transition: all 300ms ease-in-out;
+}
+
+.nav-link:hover {
+  border-radius: 0.3rem;
+  background-color: #dd9a05;
+}
+
+.top-nav {
+  display: none;
+}
+
+.hamburger {
+  display: none;
+}
+
+@media only screen and (max-width: 768px) {
+  .menu {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 80%;
+    max-width: 40rem;
+    height: 100%;
+    background-color: #fff;
+    transition: all 500ms ease-in-out;
+    z-index: 100;
+  }
+
+  .menu.show {
+    left: 0;
+  }
+
+  .top-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #dd9a05;
+    padding: 1rem 1.6rem;
+  }
+
+  .top-nav .logo span {
+    color: #fff;
+  }
+
+  .top-nav .close {
+    color: #fff;
+    font-size: 2.3rem;
+    padding: 1rem;
+    cursor: pointer;
+  }
+
+  .hamburger {
+    display: block;
+    color: #fff;
+    font-size: 2.3rem;
+    padding: 0.5rem;
+    cursor: pointer;
+  }
+
+  .nav-link:link,
+  .nav-link:visited {
+    display: block;
+    font-size: 1.7rem;
+    color: #222;
+    padding: 1rem 0;
+  }
+
+  .nav-list {
+    flex-direction: column;
+    align-items: start;
+    padding: 1rem 1.6rem;
+  }
+
+  body.show::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 1;
+  }
+
+  .nav.show {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+}
+
+/* Hero */
+.hero {
+  position: absolute;
+  top: 50%;
+  transform: translate(25%, -50%);
+  color: #fff;
+}
+
+.hero h3 {
+  font-weight: 400;
+}
+
+.hero h1 {
+  font-size: 4.5rem;
+}
+
+.hero h4 {
+  font-size: 2rem;
+}
+.hero h4 span {
+  color: #dd9a05;
+  text-decoration: underline;
+}
+
+.hero a:link,
+.hero a:visited {
+  display: inline-block;
+  padding: 0.8rem 2.5rem;
+  border: 1px solid #dd9a05;
+  background-color: #dd9a05;
+  color: #fff;
+  margin-top: 2rem;
+}
+
+.hero a:hover {
+  background-color: transparent;
+}
+
+@media only screen and (max-width: 996px) {
+  .hero {
+    transform: translate(10%, -50%);
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .hero h1 {
+    font-size: 4rem;
+  }
+}
+
+@media only screen and (max-width: 567px) {
+  .hero {
+    top: 35%;
+    transform: translate(10%, -50%);
+  }
+
+  .hero h3 {
+    font-size: 1.6rem;
+  }
+
+  .hero h1 {
+    font-size: 3rem;
+  }
+
+  .hero h4 {
+    font-size: 1.6rem;
+  }
+}
+
+.icons {
+  position: absolute;
+  bottom: 5%;
+  left: 10%;
+  color: #fff;
+}
+
+.icons span:not(:last-child) {
+  margin-right: 1rem;
+}
+
+.icons span {
+  font-size: 2rem;
+  cursor: pointer;
+  transition: all 300ms ease-in-out;
+}
+
+.icons span:hover {
+  color: #dd9a05;
+}
+
+@media only screen and (max-width: 567px) {
+  .icons {
+    display: none;
+  }
+}
+
+/* About */
+
+.section {
+  padding: 5rem 0 7rem 0;
+  overflow-x: hidden;
+}
+
+.about {
+  margin-top: 5rem;
+}
+
+.about-center {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 3rem 5rem;
+}
+
+.title {
+  margin: 4rem 0 7rem 0;
+  text-align: center;
+}
+
+.title h1 {
+  font-size: 3rem;
+  display: inline-block;
+  position: relative;
+  z-index: 0;
+}
+
+.title h1::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -20%;
+  transform: translate(-50%, -50%);
+  background-color: #dd9a05;
+  width: 50%;
+  height: 0.4rem;
+  z-index: 1;
+}
+
+.left img {
+  height: 40rem;
+  max-width: 35rem;
+  object-fit: cover;
+}
+
+.right h1 {
+  margin-bottom: 2rem;
+}
+
+.right p {
+  line-height: 2;
+  margin-bottom: 2rem;
+  color: #333;
+}
+
+.right h1 span {
+  color: #dd9a05;
+}
+
+a.btn {
+  display: inline-block;
+  padding: 1rem 2rem;
+  background: #dd9a05;
+  color: #fff;
+  border-radius: 0.5rem;
+  border: 2px solid #dd9a05;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+  transition: all 300ms ease-in-out;
+}
+
+a.btn:hover {
+  transform: translateY(-3px);
+  background-color: transparent;
+  color: inherit;
+}
+
+a.btn:active {
+  transform: translateY(0px);
+}
+
+@media only screen and (max-width: 996px) {
+  .right h1 {
+    font-size: 2rem;
+  }
+
+  .right p {
+    font-size: 1.5rem;
+  }
+
+  a.btn {
+    padding: 0.7rem 1.8rem;
+  }
+
+  .left img {
+    height: 40rem;
+    max-width: 25rem;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .about-center {
+    grid-template-columns: 1fr;
+    gap: 3rem 0rem;
+  }
+
+  .left {
+    text-align: center;
+  }
+
+  .left img {
+    height: 40rem;
+    max-width: 90%;
+  }
+}
+
+/* Services */
+.theme {
+  background-color: #000;
+}
+
+.theme .title {
+  color: #fff;
+}
+
+.services-center {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+  gap: 3rem;
+}
+
+.service {
+  color: #fff;
+  background-color: #111;
+  padding: 2rem;
+  text-align: center;
+  border-radius: 1rem;
+  transition: all 300ms ease-in-out;
+}
+
+.service span {
+  color: #dd9a05;
+  font-size: 4rem;
+  transition: all 300ms ease-in-out;
+}
+
+.service h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+.service p {
+  font-size: 1.4rem;
+  color: #f1f1f1;
+}
+
+.service:hover {
+  background-color: #dd9a05;
+}
+
+.service:hover span {
+  color: #fff;
+}
+
+/* Skills */
+
+.skills-box:not(:last-child) {
+  margin-bottom: 2rem;
+}
+
+.skills-box h4 {
+  font-size: 1.8rem;
+  color: #888;
+  font-size: 500;
+}
+
+.skills-box .skills-ilt {
+  width: 100%;
+  position: relative;
+  height: 0.4rem;
+  background-color: #ccc;
+  border-radius: 0.5rem;
+}
+
+.skills-box .skills-bar {
+  background-color: #dd9a05;
+  height: 0.4rem;
+}
+
+.skills-box .html {
+  width: 95%;
+}
+
+.skills-box .css {
+  width: 85%;
+}
+
+.skills-box .javascript {
+  width: 90%;
+}
+
+.skills-box .nodejs {
+  width: 80%;
+}
+
+.skills-box .mongodb {
+  width: 95%;
+}
+
+.skills-box span {
+  position: absolute;
+  bottom: 10%;
+  right: 0;
+  font-size: 1.4rem;
+}
+
+.skills-center {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6rem;
+}
+
+.right h3 {
+  margin-bottom: 1rem;
+}
+
+.right p {
+  margin-bottom: 2rem;
+}
+
+@media only screen and (max-width: 768px) {
+  .skills-center {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Teams */
+.team {
+  color: #fff;
+  background-color: #111;
+  padding: 3rem;
+  text-align: center;
+  border-radius: 1rem;
+  border-bottom: 4px solid transparent;
+  transition: all 300ms ease-in-out;
+}
+
+.team .img-cover {
+  overflow: hidden;
+  border-radius: 100%;
+  border: 4px solid #dd9a05;
+  height: 13rem;
+  width: 13rem;
+  margin: 0 auto;
+  transition: all 300ms ease-in-out;
+}
+
+.team .img-cover img {
+  height: 100%;
+  object-fit: cover;
+}
+
+.team h3 {
+  font-size: 1.6rem;
+  margin: 1rem 0;
+}
+
+.team p {
+  font-size: 1.5rem;
+  color: #ccc;
+  width: 80%;
+  margin: 0 auto 1rem auto;
+}
+
+.team:hover {
+  border-bottom: 4px solid #fff;
+  background-color: #dd9a05;
+}
+
+.team:hover .img-cover {
+  border-color: #fff;
+}
+
+/* Contact */
+.contact-center {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+}
+
+.left h2 {
+  font-size: 2rem;
+}
+
+.left p {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.left div {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.left div .content {
+  text-align: left;
+}
+
+.left .icon {
+  margin-right: 2rem;
+  font-size: 2.3rem;
+  color: #dd9a05;
+}
+
+.form h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.form input,
+.form textarea {
+  font-family: "Poppins", sans-serif;
+  font-size: 1.6rem;
+  padding: 1rem 0;
+  text-indent: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+  width: 100%;
+  outline: none;
+}
+
+.form .right div {
+  display: flex;
+}
+
+.form .right div input {
+  flex: 1 1 50%;
+}
+
+.form textarea {
+  width: 100%;
+  resize: vertical;
+  margin-bottom: 3rem;
+}
+
+@media only screen and (max-width: 768px) {
+  .contact-center {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-center .left {
+    text-align: left;
+  }
+
+  .left div .content h3 {
+    font-size: 1.6rem;
+  }
+
+  .left div .content span {
+    font-size: 1.5rem;
+  }
+}
+
+footer {
+  background-color: #000;
+  padding: 1.6rem 1rem;
+  text-align: center;
+}
+
+footer p {
+  color: #fff;
+}
+
+footer p span {
+  color: #dd9a05;
+}
+</style>
+    <title>Portfolio Website</title>
+  </head>
+  <body>
+    <!-- Header -->
+    <header id="home" class="header">
+      <!-- Navigation -->
+      <nav class="nav">
+        <div class="navigation container">
+          <div class="logo">
+            <h1>Abhishek<span>-</span>Kumar</h1>
+          </div>
+
+          <div class="menu">
+            <div class="top-nav">
+              <div class="logo">
+                <h1>Abhishek Kumar<span></span></h1>
+              </div>
+              <div class="close">
+                <i class="fas fa-times"></i>
+              </div>
+            </div>
+
+            <ul class="nav-list">
+              <li class="nav-item">
+                <a href="#home" class="nav-link scroll-link">Home</a>
+              </li>
+              <li class="nav-item">
+                <a href="#about" class="nav-link scroll-link">About</a>
+              </li>
+              <li class="nav-item">
+                <a href="#services" class="nav-link scroll-link">Services</a>
+              </li>
+              <li class="nav-item">
+                <a href="#skills" class="nav-link scroll-link">Skills</a>
+              </li>
+              <li class="nav-item">
+                <a href="#teams" class="nav-link scroll-link">Projects</a>
+              </li>
+              <li class="nav-item">
+                <a href="#contact" class="nav-link scroll-link">Contact</a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="hamburger">
+            <i class="fas fa-bars"></i>
+          </div>
+        </div>
+      </nav>
+      <!-- Hero -->
+      <div class="hero">
+        <h3>Hello, my name is</h3>
+        <h1>Abhishek Kumar</h1>
+        <h4>And I'm a <span id="type1"></span></h4>
+        <a href="https://2abhi000.github.io/Abhishek/">Portfolio</a>
+      </div>
+
+      <img class="banner" src="./images/bg.png" alt="" />
+
+      <div class="icons">
+        <span><i class="fab fa-facebook-f"></i></span>
+        <span><i class="fab fa-instagram"></i></span>
+        <span><i class="fab fa-twitter"></i></span>
+      </div>
+    </header>
+
+    <!-- Main -->
+    <section class="section about" id="about">
+      <div class="title">
+        <h1>About me</h1>
+      </div>
+
+      <div class="about-center container">
+        <div class="left" data-aos="fade-right" data-aos-duration="2000">
+          <img src="./images/profile1.jpeg" alt="" />
+        </div>
+        <div class="right" data-aos="fade-left" data-aos-duration="2000">
+          <h1>I'm Abhishek Kumar a <span id="type2"></span></h1>
+          <p>
+Hello Everyone!. This side Abhishek Kumar. I belong to kanpur itself. I have accomplished my intermediate(12th) from D.P.V.N school in 2019. I am B.Tech 2yr in PSIT,Kanpur from CSE Branch. I have expertise in photo and video editing. During lockdown I have dome many certification courses from Coursera, Hackerrank, Udemy, Plezmo, Skillzcafe, and many other platforms. I also worked on my skills and enhanced them to at a standard level. That's all about me. Thank You.
+          </p>
+          <a href="http://www.mediafire.com/view/ce3xt2fanotka4l/AK-Resume_%25281%2529.jpg/file" class="btn">Download CV</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services -->
+    <section class="section theme" id="services">
+      <div class="title">
+        <h1>My Services</h1>
+      </div>
+
+      <div class="services-center container">
+        <div class="service" data-aos="fade-down" data-aos-duration="2000">
+          <span><i class="fab fa-accusoft"></i></span>
+          <h2>Web Design</h2>
+          <p>
+Web design encompasses many different skills and disciplines in the production and maintenance of websites. The different areas of web design include web graphic design.
+          </p>
+        </div>
+
+        <div class="service" data-aos="fade-up" data-aos-duration="2000">
+          <span><i class="fas fa-chart-line"></i></span>
+          <h2>App Development</h2>
+          <p>
+Mobile app development is the act or process by which a mobile app is developed for mobile devices, such as personal digital assistants or mobile phones.
+          </p>
+        </div>
+
+        <div class="service" data-aos="fade-down" data-aos-duration="2000">
+          <span><i class="fas fa-blender-phone"></i></span>
+          <h2>AR Projects</h2>
+          <p>
+Augmented reality is an interactive experience of a real-world environment where the objects that reside in the real world.It is a growing trend among companies.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section class="section skills" id="skills">
+      <div class="title">
+        <h1>My Skills</h1>
+      </div>
+
+      <div class="skills-center container">
+        <div class="skills-left" data-aos="fade-right" data-aos-duration="2000">
+          <div class="skills-box">
+            <h4>HTML5</h4>
+            <div class="skills-ilt">
+              <div class="skills-bar html"></div>
+              <span>95%</span>
+            </div>
+          </div>
+          <div class="skills-box">
+            <h4>CSS</h4>
+            <div class="skills-ilt">
+              <div class="skills-bar css"></div>
+              <span>85%</span>
+            </div>
+          </div>
+          <div class="skills-box">
+            <h4>JavaScript</h4>
+            <div class="skills-ilt">
+              <div class="skills-bar javascript"></div>
+              <span>90%</span>
+            </div>
+          </div>
+          <div class="skills-box">
+            <h4>C</h4>
+            <div class="skills-ilt">
+              <div class="skills-bar nodejs"></div>
+              <span>80%</span>
+            </div>
+          </div>
+
+          <div class="skills-box">
+            <h4>Photo & Video Editing</h4>
+            <div class="skills-ilt">
+              <div class="skills-bar mongodb"></div>
+              <span>95%</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="right" data-aos="fade-left" data-aos-duration="2000">
+          <h3>My creative skills and experience</h3>
+          <p>
+We make tutorials of all the Programming and Scripting languages to help for free.
+We write articles on current and Interesting Technicals Topic to spread knowledge and sometimes on Social Causes too.
+          </p>
+          <a href="https://aakjj.blogspot.com" class="btn">Blog</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Teams -->
+    <section class="section theme" id="teams">
+      <div class="title">
+        <h1>My Projects</h1>
+      </div>
+
+      <div class="teams-center container">
+        <div class="glide">
+          <div class="glide__track" data-glide-el="track">
+            <ul class="glide__slides">
+              <li class="glide__slide">
+                <div class="team">
+                  <div class="img-cover">
+                    <img src="./images/profile2.png" alt="" />
+                  </div>
+                  <h3>Augmented Reality Applications</h3>
+                  <p>
+                    Augmented reality is an interactive experience of a real-world environment.
+                  </p>
+                </div>
+              </li>
+              <li class="glide__slide">
+                <div class="team">
+                  <div class="img-cover">
+                    <img src="./images/profile3.jpg" alt="" />
+                  </div>
+                  <h3>AR Image Gallery</h3>
+                  <p>
+ In AR Image Gallery app the images changes according to the movements of the mobile.
+                  </p>
+                </div>
+              </li>
+              <li class="glide__slide">
+                <div class="team">
+                  <div class="img-cover">
+                    <img src="./images/profile4.jpg" alt="" />
+                  </div>
+                  <h3>AR Video Player</h3>
+                  <p>
+Augmented Reality Video Player enables the on-the-fly deployment of AR markers and video content.
+                  </p>
+                </div>
+              </li>
+              <li class="glide__slide">
+                <div class="team">
+                  <div class="img-cover">
+                    <img src="./images/b.png" alt="" />
+                  </div>
+                  <h3>AR Business Card</h3>
+                  <p>
+An AR Business Card is an mobile app with embedded UI that the user can use to scan the business card.
+                  </p>
+                </div>
+              </li>
+              <li class="glide__slide">
+                <div class="team">
+                  <div class="img-cover">
+                    <img src="./images/profile5.jpg" alt="" />
+                  </div>
+                  <h3>Coming Soon</h3>
+                  <p>
+This project is in developing stage. As soon as it completes I will post it here.
+                  </p>
+                </div>
+              </li>
+              <li class="glide__slide">
+                <div class="team">
+                  <div class="img-cover">
+                    <img src="./images/cc.png" alt="" />
+                  </div>
+                  <h3>AR Game</h3>
+                  <p>
+An immersive AR experience can make games matter again.AR gaming will be more interesting.
+                  </p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="section contact" id="contact">
+      <div class="title">
+        <h1>Contact me</h1>
+      </div>
+
+      <div class="contact-center container">
+        <div class="left" data-aos="fade-down-right" data-aos-duration="2000">
+          <h2>Get in Touch</h2>
+          <p>
+Hello Everyone! Have a great day :) I am here to help you. If you want to know something or you have any suggestion then please mail me. Thank You.
+          </p>
+          <div>
+            <span class="icon"><i class="fas fa-user"></i></span>
+            <span class="content">
+              <h3>Name</h3>
+              <span>Abhishek Kumar</span>
+            </span>
+          </div>
+
+          <div>
+            <span class="icon"><i class="fas fa-map-marker-alt"></i></span>
+            <span class="content">
+              <h3>Address</h3>
+              <span>India</span>
+            </span>
+          </div>
+
+          <div>
+            <span class="icon"><i class="fas fa-envelope"></i></span>
+            <span class="content">
+              <h3>Email</h3>
+              <span>kumarabhishek63944@gmail.com</span>
+            </span>
+          </div>
+        </div>
+        <div class="right" data-aos="fade-up-left" data-aos-duration="2000">
+          
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <p>Created By <span>Abhishek</span> | &copy; 2021 All rights reserved.</p>
+    </footer>
+
+    <!-- AOS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <!-- Typeit -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typeit/7.0.4/typeit.min.js"></script>
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
+    <!-- Glidejs -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.4.1/glide.min.js"></script>
+    <!-- Custom Script -->
+    <script>
+AOS.init();
+
+const menu = document.querySelector(".menu");
+const navOpen = document.querySelector(".hamburger");
+const navClose = document.querySelector(".close");
+
+const navLeft = menu.getBoundingClientRect().left;
+navOpen.addEventListener("click", () => {
+  if (navLeft < 0) {
+    menu.classList.add("show");
+    document.body.classList.add("show");
+    navBar.classList.add("show");
+  }
+});
+
+navClose.addEventListener("click", () => {
+  if (navLeft < 0) {
+    menu.classList.remove("show");
+    document.body.classList.remove("show");
+    navBar.classList.remove("show");
+  }
+});
+
+// Fixed Nav
+const navBar = document.querySelector(".nav");
+const navHeight = navBar.getBoundingClientRect().height;
+window.addEventListener("scroll", () => {
+  const scrollHeight = window.pageYOffset;
+  if (scrollHeight > navHeight) {
+    navBar.classList.add("fix-nav");
+  } else {
+    navBar.classList.remove("fix-nav");
+  }
+});
+
+// Scroll To
+const links = [...document.querySelectorAll(".scroll-link")];
+links.map(link => {
+  link.addEventListener("click", e => {
+    e.preventDefault();
+
+    const id = e.target.getAttribute("href").slice(1);
+    const element = document.getElementById(id);
+    const fixNav = navBar.classList.contains("fix-nav");
+    let position = element.offsetTop - navHeight;
+
+    window.scrollTo({
+      top: position,
+      left: 0,
+    });
+
+    navBar.classList.remove("show");
+    menu.classList.remove("show");
+    document.body.classList.remove("show");
+  });
+});
+
+new TypeIt("#type1", {
+  speed: 120,
+  loop: true,
+  waitUntilVisible: true,
+})
+  .type("Designer", { delay: 400 })
+  .pause(500)
+  .delete(9)
+  .type("Developer", { delay: 400 })
+  .pause(500)
+  .delete(9)
+  .go();
+
+new TypeIt("#type2", {
+  speed: 120,
+  loop: true,
+  waitUntilVisible: true,
+})
+  .type("Designer", { delay: 400 })
+  .pause(500)
+  .delete(9)
+  .type("Developer", { delay: 400 })
+  .pause(500)
+  .delete(9)
+  .go();
+
+gsap.from(".logo", { opacity: 0, duration: 1, delay: 0.5, y: -10 });
+gsap.from(".hamburger", { opacity: 0, duration: 1, delay: 1, x: 20 });
+gsap.from(".banner", { opacity: 0, duration: 1, delay: 1.5, x: -200 });
+gsap.from(".hero h3", { opacity: 0, duration: 1, delay: 2, y: -50 });
+gsap.from(".hero h1", { opacity: 0, duration: 1, delay: 2.5, y: -45 });
+gsap.from(".hero h4", { opacity: 0, duration: 1, delay: 3, y: -30 });
+gsap.from(".hero a", { opacity: 0, duration: 1, delay: 3.5, y: 50 });
+gsap.from(".nav-item", {
+  opacity: 0,
+  duration: 1,
+  delay: 1.2,
+  y: 30,
+  stagger: 0.2,
+});
+gsap.from(".icons span", {
+  opacity: 0,
+  duration: 1,
+  delay: 4,
+  x: -30,
+  stagger: 0.2,
+});
+
+const glide = document.querySelector(".glide");
+if (glide)
+  new Glide(glide, {
+    type: "carousel",
+    startAt: 0,
+    perView: 3,
+    gap: 30,
+    hoverpause: true,
+    autoplay: 2000,
+    animationDuration: 800,
+    animationTimingFunc: "cubic-bezier(0.165, 0.840, 0.440, 1.000)",
+    breakpoints: {
+      996: {
+        perView: 2,
+      },
+      768: {
+        perView: 1,
+      },
+    },
+  }).mount();
+
+</script>
+  </body>
+</html>
